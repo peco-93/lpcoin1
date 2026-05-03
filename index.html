@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>coincarrière – توفير الكفاءات التقنية لمستقبل السيارات</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&family=Poppins:wght@400;600;700;900&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --primary:      #00C896;
+      --primary-dark: #009E75;
+      --accent:       #FFD700;
+      --dark:         #0D1B2A;
+      --dark2:        #112233;
+      --mid:          #1A2F45;
+      --light-bg:     #F4F9FF;
+      --text-main:    #0D1B2A;
+      --text-light:   #FFFFFF;
+      --text-muted:   #6B8CA6;
+      --border:       rgba(0,200,150,0.25);
+      --shadow:       0 20px 60px rgba(0,200,150,0.15);
+      --radius:       16px;
+      --radius-sm:    10px;
+      --transition:   0.35s cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* ── Font per language ── */
+    html[lang="ar"] body { font-family: 'Cairo','Tajawal',sans-serif; }
+    html[lang="fr"] body,
+    html[lang="en"] body { font-family: 'Poppins','Montserrat',sans-serif; }
+
+    body {
+      background: var(--dark);
+      color: var(--text-light);
+      overflow-x: hidden;
+      line-height: 1.7;
+      transition: all 0.3s ease;
+    }
+
+    ::-webkit-scrollbar { width:6px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius:3px; }
+
+    .container { max-width:1160px; margin:0 auto; padding:0 24px; }
+    .section { padding:100px 0; }
+    .section-light { background: var(--light-bg); color: var(--text-main); }
+    .section-mid   { background: var(--mid); }
+
+    .badge {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(0,200,150,0.12);
+      border:1px solid var(--border);
+      color:var(--primary);
+      padding:8px 20px; border-radius:50px;
+      font-size:13px; font-weight:700;
+      letter-spacing:1px; text-transform:uppercase;
+      margin-bottom:20px;
+    }
+
+    .section-title {
+      font-size:clamp(28px,4vw,46px);
+      font-weight:900; line-height:1.2; margin-bottom:18px;
+    }
+    .section-title span { color:var(--primary); }
+    .section-title.light span { color:var(--primary-dark); }
+
+    .section-sub {
+      font-size:17px; color:var(--text-muted);
+      max-width:620px; margin:0 auto 50px; line-height:1.9;
+    }
+    .section-sub.dark { color:#334E65; }
+    .text-center { text-align:center; }
+
+    /* ══════════════════════════
+       LANGUAGE SWITCHER
+    ══════════════════════════ */
+    .lang-switcher {
+      display:flex; align-items:center; gap:4px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:50px; padding:4px;
+    }
+    .lang-btn {
+      display:flex; align-items:center; justify-content:center; gap:6px;
+      padding:7px 14px; border-radius:50px; border:none;
+      background:transparent; color:rgba(255,255,255,0.55);
+      font-size:13px; font-weight:700;
+      cursor:pointer; transition:var(--transition);
+      font-family:inherit; letter-spacing:0.5px;
+    }
+    .lang-btn .flag { font-size:16px; }
+    .lang-btn:hover { color:white; background:rgba(255,255,255,0.08); }
+    .lang-btn.active {
+      background:var(--primary); color:white;
+      box-shadow:0 4px 14px rgba(0,200,150,0.4);
+    }
+
+    /* ══════════════════════════
+       NAVBAR
+    ══════════════════════════ */
+    .navbar {
+      position:fixed; top:0; width:100%; z-index:1000;
+      padding:18px 0;
+      background:rgba(13,27,42,0.95);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(0,200,150,0.1);
+      transition:var(--transition);
+    }
+    .navbar .container {
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+    .logo-icon {
+      width:46px; height:46px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:22px; color:white;
+      box-shadow:0 4px 20px rgba(0,200,150,0.4); flex-shrink:0;
+    }
+    .logo-text { display:flex; flex-direction:column; }
+    .logo-name { font-size:20px; font-weight:900; color:white; line-height:1.1; }
+    .logo-name span { color:var(--primary); }
+    .logo-tag { font-size:11px; color:var(--text-muted); letter-spacing:1.5px; text-transform:uppercase; }
+
+    .nav-links { display:flex; align-items:center; gap:28px; list-style:none; }
+    .nav-links a {
+      color:rgba(255,255,255,0.75); text-decoration:none;
+      font-size:14px; font-weight:600; transition:var(--transition);
+    }
+    .nav-links a:hover { color:var(--primary); }
+
+    .navbar-right { display:flex; align-items:center; gap:12px; flex-shrink:0; }
+
+    .btn-nav {
+      background:var(--primary); color:white; padding:10px 22px;
+      border-radius:50px; font-weight:700; font-size:13px;
+      text-decoration:none; transition:var(--transition);
+      box-shadow:0 4px 20px rgba(0,200,150,0.35); white-space:nowrap;
+    }
+    .btn-nav:hover { background:var(--primary-dark); transform:translateY(-2px); }
+
+    /* ══════════════════════════
+       HERO
+    ══════════════════════════ */
+    .hero {
+      min-height:100vh; display:flex; align-items:center;
+      position:relative; overflow:hidden; padding-top:90px;
+    }
+    .hero-bg {
+      position:absolute; inset:0; z-index:0;
+      background:linear-gradient(135deg,#0D1B2A 0%,#0a2435 40%,#072c20 100%);
+    }
+    .hero-grid {
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(0,200,150,0.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,200,150,0.04) 1px,transparent 1px);
+      background-size:60px 60px;
+    }
+    .hero-glow {
+      position:absolute; width:800px; height:800px;
+      background:radial-gradient(circle,rgba(0,200,150,0.10) 0%,transparent 70%);
+      top:-300px; left:50%; transform:translateX(-50%); z-index:0;
+    }
+    .hero-glow2 {
+      position:absolute; width:500px; height:500px;
+      background:radial-gradient(circle,rgba(255,215,0,0.05) 0%,transparent 70%);
+      bottom:-100px; right:-100px; z-index:0;
+    }
+    .hero .container {
+      position:relative; z-index:1;
+      display:flex; flex-direction:column;
+      align-items:center; text-align:center;
+      gap:56px; padding:80px 24px;
+    }
+    .hero-content { max-width:820px; width:100%; }
+    .hero-title {
+      font-size:clamp(36px,5.5vw,66px);
+      font-weight:900; line-height:1.15; margin-bottom:24px;
+    }
+    .hero-title .line2 { color:var(--primary); }
+    .hero-title .line3 { color:var(--accent); }
+    .hero-desc {
+      font-size:18px; color:rgba(255,255,255,0.75);
+      line-height:1.9; margin:0 auto 40px; max-width:640px;
+    }
+    .hero-cta {
+      display:flex; flex-wrap:wrap; gap:16px;
+      margin-bottom:50px; justify-content:center;
+    }
+    .btn-primary {
+      display:inline-flex; align-items:center; gap:10px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:white; padding:16px 40px; border-radius:50px;
+      font-weight:700; font-size:16px; text-decoration:none;
+      border:none; cursor:pointer; transition:var(--transition);
+      box-shadow:0 8px 30px rgba(0,200,150,0.4);
+    }
+    .btn-primary:hover { transform:translateY(-3px); box-shadow:0 14px 40px rgba(0,200,150,0.55); }
+    .btn-secondary {
+      display:inline-flex; align-items:center; gap:10px;
+      background:transparent; color:white; padding:15px 36px;
+      border-radius:50px; font-weight:700; font-size:16px;
+      text-decoration:none; border:2px solid rgba(255,255,255,0.25);
+      transition:var(--transition);
+    }
+    .btn-secondary:hover { border-color:var(--primary); color:var(--primary); transform:translateY(-3px); }
+
+    .hero-stats { display:flex; gap:40px; flex-wrap:wrap; justify-content:center; }
+    .stat-item { display:flex; flex-direction:column; align-items:center; }
+    .stat-num { font-size:34px; font-weight:900; color:var(--primary); line-height:1; }
+    .stat-num span { color:var(--accent); }
+    .stat-label { font-size:12px; color:rgba(255,255,255,0.55); letter-spacing:0.5px; margin-top:4px; }
+
+    /* Hero Image */
+    .hero-image-block { width:100%; max-width:900px; }
+    .hero-img-wrapper {
+      position:relative; border-radius:28px; overflow:hidden;
+      box-shadow:0 40px 100px rgba(0,0,0,0.5),0 0 0 1px rgba(0,200,150,0.15);
+      border:1px solid rgba(0,200,150,0.2);
+    }
+    .hero-img-wrapper img {
+      width:100%; height:480px; object-fit:cover; display:block;
+      filter:brightness(0.88) saturate(1.1); transition:var(--transition);
+    }
+    .hero-img-wrapper:hover img { filter:brightness(0.95) saturate(1.2); transform:scale(1.02); }
+    .hero-img-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top,rgba(13,27,42,0.85) 0%,rgba(13,27,42,0.2) 50%,transparent 100%);
+    }
+    .img-badge {
+      position:absolute; display:flex; align-items:center; gap:10px;
+      background:rgba(13,27,42,0.88); backdrop-filter:blur(12px);
+      border:1px solid rgba(0,200,150,0.3);
+      border-radius:16px; padding:12px 20px;
+      box-shadow:0 8px 32px rgba(0,0,0,0.3);
+    }
+    .img-badge-icon {
+      width:40px; height:40px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px; color:white; flex-shrink:0;
+    }
+    .img-badge-text { display:flex; flex-direction:column; }
+    .img-badge-num { font-size:18px; font-weight:900; color:var(--primary); line-height:1; }
+    .img-badge-lbl { font-size:11px; color:rgba(255,255,255,0.6); margin-top:2px; }
+    .badge-top-right { top:24px; left:24px; animation:floatY 3s ease-in-out infinite; }
+    .badge-top-left  { top:24px; right:24px; animation:floatY 3s ease-in-out infinite 0.8s; }
+    .badge-bottom {
+      bottom:24px; left:50%; transform:translateX(-50%);
+      background:rgba(255,215,0,0.12); border-color:rgba(255,215,0,0.4);
+      animation:floatYCenter 3s ease-in-out infinite 1.6s;
+    }
+    .badge-bottom .img-badge-icon { background:linear-gradient(135deg,var(--accent),#e6b800); color:var(--dark); }
+    .badge-bottom .img-badge-num  { color:var(--accent); }
+    @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes floatYCenter { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-8px)} }
+    .hero-img-caption {
+      margin-top:20px;
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      font-size:14px; color:rgba(255,255,255,0.4);
+    }
+    .hero-img-caption i { color:var(--primary); }
+
+    /* ══════════════════════════
+       TRUSTED
+    ══════════════════════════ */
+    .trusted {
+      background:rgba(255,255,255,0.03);
+      border-top:1px solid rgba(255,255,255,0.06);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      padding:32px 0;
+    }
+    .trusted-label {
+      text-align:center; font-size:13px;
+      color:rgba(255,255,255,0.35); letter-spacing:2px;
+      text-transform:uppercase; margin-bottom:24px;
+    }
+    .logos-row { display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; }
+    .logo-chip {
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);
+      border-radius:10px; padding:12px 24px;
+      color:rgba(255,255,255,0.4); font-size:15px; font-weight:700;
+      transition:var(--transition); display:flex; align-items:center; gap:8px;
+    }
+    .logo-chip:hover { color:var(--primary); border-color:rgba(0,200,150,0.3); }
+
+    /* ══════════════════════════
+       PROBLEM
+    ══════════════════════════ */
+    .problem-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:20px; }
+    .problem-card {
+      background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+      border-radius:var(--radius); padding:36px 28px;
+      text-align:center; transition:var(--transition); position:relative; overflow:hidden;
+    }
+    .problem-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg,transparent,var(--primary),transparent);
+      opacity:0; transition:var(--transition);
+    }
+    .problem-card:hover::before { opacity:1; }
+    .problem-card:hover { border-color:rgba(0,200,150,0.25); transform:translateY(-6px); }
+    .problem-icon {
+      width:70px; height:70px;
+      background:rgba(220,53,69,0.12); border:1px solid rgba(220,53,69,0.2);
+      border-radius:20px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:28px; color:#FF6B6B; margin:0 auto 22px;
+    }
+    .problem-card h3 { font-size:18px; font-weight:700; margin-bottom:12px; }
+    .problem-card p  { font-size:14px; color:rgba(255,255,255,0.55); line-height:1.8; }
+
+    /* ══════════════════════════
+       HOW IT WORKS
+    ══════════════════════════ */
+    .steps-wrapper { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; position:relative; }
+    .steps-wrapper::before {
+      content:''; position:absolute;
+      top:44px; right:12.5%; left:12.5%; height:2px;
+      background:linear-gradient(90deg,transparent,var(--primary),var(--accent),var(--primary),transparent);
+      opacity:0.4; z-index:0;
+    }
+    .step-card {
+      background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+      border-radius:var(--radius); padding:32px 22px;
+      text-align:center; position:relative; z-index:1; transition:var(--transition);
+    }
+    .step-card:hover { border-color:rgba(0,200,150,0.3); transform:translateY(-6px); box-shadow:var(--shadow); }
+    .step-num {
+      width:56px; height:56px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px; font-weight:900; color:white;
+      margin:0 auto 22px; box-shadow:0 6px 20px rgba(0,200,150,0.35);
+    }
+    .step-card h3 { font-size:17px; font-weight:700; margin-bottom:10px; color:white; }
+    .step-card p  { font-size:13px; color:rgba(255,255,255,0.5); line-height:1.8; }
+
+    /* ══════════════════════════
+       SERVICES
+    ══════════════════════════ */
+    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+    .service-card {
+      background:white; border-radius:var(--radius); padding:40px 30px;
+      text-align:center; transition:var(--transition);
+      border:2px solid transparent; box-shadow:0 4px 24px rgba(0,0,0,0.06);
+      position:relative; overflow:hidden;
+    }
+    .service-card::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:4px;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      transform:scaleX(0); transform-origin:right; transition:var(--transition);
+    }
+    .service-card:hover { transform:translateY(-8px); border-color:rgba(0,200,150,0.2); }
+    .service-card:hover::after { transform:scaleX(1); transform-origin:left; }
+    .service-icon {
+      width:80px; height:80px;
+      background:linear-gradient(135deg,rgba(0,200,150,0.12),rgba(0,200,150,0.04));
+      border:2px solid rgba(0,200,150,0.15); border-radius:24px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:32px; color:var(--primary); margin:0 auto 24px;
+    }
+    .service-card h3 { font-size:18px; font-weight:800; color:var(--text-main); margin-bottom:12px; }
+    .service-card p  { font-size:14px; color:#6B8CA6; line-height:1.8; margin-bottom:18px; }
+    .service-tags { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+    .tag {
+      background:rgba(0,200,150,0.08); color:var(--primary-dark);
+      font-size:12px; font-weight:600; padding:5px 12px; border-radius:50px;
+      border:1px solid rgba(0,200,150,0.2);
+    }
+    .service-cta-btn {
+      display:inline-flex; align-items:center; gap:8px; margin-top:18px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:white; padding:11px 24px; border-radius:50px;
+      font-weight:700; font-size:13px; text-decoration:none;
+      transition:var(--transition); box-shadow:0 4px 16px rgba(0,200,150,0.3);
+    }
+    .service-cta-btn:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,200,150,0.45); }
+
+    /* ══════════════════════════
+       WHY US
+    ══════════════════════════ */
+    .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
+    .why-list { display:flex; flex-direction:column; gap:22px; }
+    .why-item {
+      display:flex; gap:18px; align-items:flex-start;
+      background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07);
+      border-radius:var(--radius-sm); padding:22px 24px; transition:var(--transition);
+    }
+    html[lang="ar"] .why-item:hover { border-color:rgba(0,200,150,0.25); transform:translateX(-5px); }
+    html[lang="fr"] .why-item:hover,
+    html[lang="en"] .why-item:hover { border-color:rgba(0,200,150,0.25); transform:translateX(5px); }
+    .why-item-icon {
+      width:50px; height:50px; flex-shrink:0;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      border-radius:14px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px; color:white; box-shadow:0 4px 16px rgba(0,200,150,0.3);
+    }
+    .why-item-text h4 { font-size:16px; font-weight:700; margin-bottom:6px; }
+    .why-item-text p  { font-size:14px; color:rgba(255,255,255,0.55); line-height:1.7; }
+    .why-visual { position:relative; }
+    .metrics-card {
+      background:rgba(255,255,255,0.04); backdrop-filter:blur(20px);
+      border:1px solid rgba(0,200,150,0.2); border-radius:24px; padding:36px;
+      box-shadow:0 30px 80px rgba(0,0,0,0.35);
+    }
+    .metrics-title {
+      font-size:14px; color:rgba(255,255,255,0.4);
+      letter-spacing:2px; text-transform:uppercase;
+      margin-bottom:28px; text-align:center;
+    }
+    .metric-row { display:flex; flex-direction:column; gap:20px; }
+    .metric-header { display:flex; justify-content:space-between; margin-bottom:8px; }
+    .metric-name { font-size:14px; font-weight:600; color:rgba(255,255,255,0.75); }
+    .metric-val  { font-size:14px; font-weight:700; color:var(--primary); }
+    .metric-bar  { height:8px; background:rgba(255,255,255,0.07); border-radius:4px; overflow:hidden; }
+    .metric-fill { height:100%; border-radius:4px; background:linear-gradient(90deg,var(--primary),var(--accent)); }
+    .kpi-row {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:16px; margin-top:28px; padding-top:24px;
+      border-top:1px solid rgba(255,255,255,0.07);
+    }
+    .kpi-item { text-align:center; }
+    .kpi-num { font-size:28px; font-weight:900; color:var(--accent); }
+    .kpi-lbl { font-size:11px; color:rgba(255,255,255,0.4); margin-top:4px; }
+    .why-cta-wrap { text-align:center; margin-top:36px; }
+    .btn-why-cta {
+      display:inline-flex; align-items:center; gap:12px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:white; padding:16px 40px; border-radius:50px;
+      font-weight:800; font-size:16px; text-decoration:none;
+      transition:var(--transition); box-shadow:0 8px 30px rgba(0,200,150,0.4);
+    }
+    .btn-why-cta:hover { transform:translateY(-3px); box-shadow:0 14px 40px rgba(0,200,150,0.55); }
+
+    /* ══════════════════════════
+       TESTIMONIALS
+    ══════════════════════════ */
+    .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+    .testimonial-card {
+      background:white; border-radius:var(--radius); padding:36px 28px;
+      box-shadow:0 4px 24px rgba(0,0,0,0.07);
+      transition:var(--transition); position:relative;
+    }
+    .testimonial-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,200,150,0.12); }
+    .quote-icon {
+      font-size:40px; color:var(--primary); opacity:0.2;
+      position:absolute; top:20px; left:28px;
+      font-family:Georgia,serif; line-height:1;
+    }
+    html[dir="ltr"] .quote-icon { left:auto; right:28px; }
+    .testimonial-text { font-size:15px; color:#4A6278; line-height:1.9; margin-bottom:24px; padding-top:10px; }
+    .testimonial-author { display:flex; align-items:center; gap:14px; }
+    .author-avatar {
+      width:48px; height:48px; border-radius:50%;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      display:flex; align-items:center; justify-content:center;
+      font-size:16px; font-weight:700; color:white; flex-shrink:0;
+    }
+    .author-name { font-size:15px; font-weight:700; color:var(--text-main); }
+    .author-role { font-size:12px; color:var(--text-muted); }
+    .stars { color:var(--accent); font-size:14px; margin-bottom:14px; }
+
+    /* ══════════════════════════
+       CTA BANNER
+    ══════════════════════════ */
+    .cta-banner {
+      background:linear-gradient(135deg,var(--primary-dark) 0%,#005c45 50%,#003d30 100%);
+      padding:80px 0; position:relative; overflow:hidden;
+    }
+    .cta-banner::before {
+      content:''; position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+      background-size:40px 40px;
+    }
+    .cta-banner .container {
+      position:relative; z-index:1;
+      display:flex; align-items:center;
+      justify-content:space-between; gap:40px; flex-wrap:wrap;
+    }
+    .cta-banner-text h2 { font-size:clamp(24px,3.5vw,38px); font-weight:900; color:white; margin-bottom:10px; }
+    .cta-banner-text h2 span { color:var(--accent); }
+    .cta-banner-text p { font-size:16px; color:rgba(255,255,255,0.75); }
+    .cta-banner-btns { display:flex; gap:16px; flex-wrap:wrap; }
+    .btn-cta-banner {
+      display:inline-flex; align-items:center; gap:10px;
+      background:var(--accent); color:var(--dark);
+      padding:16px 36px; border-radius:50px; font-weight:900; font-size:16px;
+      text-decoration:none; transition:var(--transition);
+      box-shadow:0 8px 30px rgba(255,215,0,0.4);
+    }
+    .btn-cta-banner:hover { transform:translateY(-3px); box-shadow:0 14px 40px rgba(255,215,0,0.6); }
+    .btn-cta-banner-outline {
+      display:inline-flex; align-items:center; gap:10px;
+      background:transparent; color:white; padding:15px 34px;
+      border-radius:50px; font-weight:700; font-size:16px;
+      text-decoration:none; border:2px solid rgba(255,255,255,0.4);
+      transition:var(--transition);
+    }
+    .btn-cta-banner-outline:hover { border-color:white; background:rgba(255,255,255,0.1); transform:translateY(-3px); }
+
+    /* ══════════════════════════
+       FORM
+    ══════════════════════════ */
+    .form-section {
+      background:linear-gradient(135deg,#072c20,#0D1B2A 50%,#071a2c);
+      position:relative; overflow:hidden;
+    }
+    .form-section::before {
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 20% 50%,rgba(0,200,150,0.08) 0%,transparent 50%),
+        radial-gradient(circle at 80% 50%,rgba(255,215,0,0.05) 0%,transparent 50%);
+    }
+    .form-wrapper { position:relative; z-index:1; max-width:620px; margin:0 auto; }
+    .form-card {
+      background:rgba(255,255,255,0.04); backdrop-filter:blur(20px);
+      border:1px solid rgba(0,200,150,0.2); border-radius:28px;
+      padding:52px 48px; box-shadow:0 40px 100px rgba(0,0,0,0.4);
+    }
+    .form-group { display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
+    .form-label { font-size:13px; font-weight:600; color:rgba(255,255,255,0.7); letter-spacing:0.5px; }
+    .form-label span { color:var(--primary); }
+    .form-input,.form-select {
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+      border-radius:var(--radius-sm); padding:14px 18px;
+      color:white; font-size:15px; font-family:inherit;
+      transition:var(--transition); width:100%; outline:none;
+    }
+    .form-input::placeholder { color:rgba(255,255,255,0.25); }
+    .form-input:focus,.form-select:focus {
+      border-color:var(--primary); background:rgba(0,200,150,0.06);
+      box-shadow:0 0 0 3px rgba(0,200,150,0.12);
+    }
+    .form-select option { background:var(--dark2); color:white; }
+    .btn-submit {
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      width:100%; padding:18px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:white; border:none; border-radius:50px;
+      font-size:17px; font-weight:700; font-family:inherit;
+      cursor:pointer; transition:var(--transition);
+      box-shadow:0 8px 30px rgba(0,200,150,0.4); margin-top:8px;
+    }
+    .btn-submit:hover { transform:translateY(-3px); box-shadow:0 14px 40px rgba(0,200,150,0.55); }
+    .form-trust { display:flex; justify-content:center; gap:24px; margin-top:22px; flex-wrap:wrap; }
+    .form-trust-item { display:flex; align-items:center; gap:7px; font-size:12px; color:rgba(255,255,255,0.4); }
+    .form-trust-item i { color:var(--primary); }
+
+    /* ══════════════════════════
+       FAQ
+    ══════════════════════════ */
+    .faq-list { max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:16px; }
+    .faq-item {
+      background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+      border-radius:var(--radius-sm); overflow:hidden; transition:var(--transition);
+    }
+    .faq-item:hover { border-color:rgba(0,200,150,0.2); }
+    .faq-q {
+      padding:22px 26px; font-size:16px; font-weight:700; color:white;
+      cursor:pointer; display:flex; justify-content:space-between; align-items:center;
+      user-select:none;
+    }
+    .faq-q i { font-size:16px; color:var(--primary); transition:var(--transition); flex-shrink:0; margin-right:12px; }
+    html[dir="rtl"] .faq-q i { margin-right:0; margin-left:12px; }
+    .faq-a { display:none; padding:0 26px 22px; font-size:15px; color:rgba(255,255,255,0.55); line-height:1.8; }
+    .faq-item.open .faq-a { display:block; }
+    .faq-item.open .faq-q i { transform:rotate(45deg); }
+    .faq-item.open { border-color:rgba(0,200,150,0.25); }
+    .faq-cta { text-align:center; margin-top:52px; }
+    .faq-cta p { font-size:16px; color:rgba(255,255,255,0.5); margin-bottom:20px; }
+    .btn-faq-cta {
+      display:inline-flex; align-items:center; gap:10px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:white; padding:16px 44px; border-radius:50px;
+      font-weight:800; font-size:17px; text-decoration:none;
+      transition:var(--transition); box-shadow:0 8px 30px rgba(0,200,150,0.4);
+    }
+    .btn-faq-cta:hover { transform:translateY(-3px); box-shadow:0 14px 40px rgba(0,200,150,0.55); }
+
+    /* ══════════════════════════
+       FOOTER
+    ══════════════════════════ */
+    .footer { background:#080F18; padding:60px 0 30px; border-top:1px solid rgba(255,255,255,0.06); }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+    .footer-brand p { font-size:14px; color:rgba(255,255,255,0.4); line-height:1.8; margin-top:16px; margin-bottom:24px; }
+    .social-links { display:flex; gap:12px; }
+    .social-link {
+      width:40px; height:40px;
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08);
+      border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(255,255,255,0.5); font-size:16px;
+      transition:var(--transition); text-decoration:none;
+    }
+    .social-link:hover { background:var(--primary); color:white; border-color:var(--primary); }
+    .footer-col h4 { font-size:15px; font-weight:700; margin-bottom:18px; color:white; }
+    .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-col ul li a { color:rgba(255,255,255,0.4); text-decoration:none; font-size:14px; transition:var(--transition); }
+    .footer-col ul li a:hover { color:var(--primary); }
+    .footer-bottom {
+      border-top:1px solid rgba(255,255,255,0.06); padding-top:24px;
+      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+    }
+    .footer-bottom p { font-size:13px; color:rgba(255,255,255,0.3); }
+    .footer-bottom span { color:var(--primary); }
+
+    /* ══════════════════════════
+       FLOATING CTA
+    ══════════════════════════ */
+    .floating-cta {
+      position:fixed; bottom:30px; left:50%; transform:translateX(-50%);
+      z-index:999;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:white; padding:14px 36px; border-radius:50px;
+      font-weight:800; font-size:15px; text-decoration:none;
+      box-shadow:0 10px 40px rgba(0,200,150,0.55);
+      display:flex; align-items:center; gap:10px;
+      opacity:0; pointer-events:none;
+      transition:var(--transition); white-space:nowrap;
+    }
+    .floating-cta.visible { opacity:1; pointer-events:all; }
+    .floating-cta:hover { transform:translateX(-50%) translateY(-4px); }
+
+    /* ══════════════════════════
+       RESPONSIVE
+    ══════════════════════════ */
+    @media(max-width:1024px){
+      .steps-wrapper { grid-template-columns:repeat(2,1fr); }
+      .steps-wrapper::before { display:none; }
+      .footer-top { grid-template-columns:1fr 1fr; }
+      .cta-banner .container { flex-direction:column; text-align:center; }
+      .cta-banner-btns { justify-content:center; }
+      .why-grid { grid-template-columns:1fr; }
+    }
+    @media(max-width:768px){
+      .section { padding:70px 0; }
+      .problem-grid,.services-grid,.testimonials-grid { grid-template-columns:1fr; }
+      .form-card { padding:36px 20px; }
+      .nav-links { display:none; }
+      .footer-top { grid-template-columns:1fr; }
+      .hero-img-wrapper img { height:260px; }
+      .badge-top-right,.badge-top-left { display:none; }
+      .lang-btn span.lang-text { display:none; }
+    }
+
+    /* ══════════════════════════
+       LANGUAGE TRANSITION
+    ══════════════════════════ */
+    .lang-fade { animation: langFadeIn 0.4s ease; }
+    @keyframes langFadeIn {
+      from { opacity:0; transform:translateY(8px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════ NAVBAR ══════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#" class="logo">
+      <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+      <div class="logo-text">
+        <span class="logo-name">coin<span>carrière</span></span>
+        <span class="logo-tag">Recruitment Experts</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#services"  data-i18n="nav.services">خدماتنا</a></li>
+      <li><a href="#how"       data-i18n="nav.how">آلية العمل</a></li>
+      <li><a href="#why"       data-i18n="nav.why">لماذا نحن</a></li>
+      <li><a href="#testimonials" data-i18n="nav.testimonials">شهادات</a></li>
+      <li><a href="#faq"       data-i18n="nav.faq">الأسئلة</a></li>
+    </ul>
+
+    <div class="navbar-right">
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('ar')" id="btn-ar">
+          <span class="flag">🇲🇦</span>
+          <span class="lang-text">AR</span>
+        </button>
+        <button class="lang-btn" onclick="setLang('fr')" id="btn-fr">
+          <span class="flag">🇫🇷</span>
+          <span class="lang-text">FR</span>
+        </button>
+        <button class="lang-btn" onclick="setLang('en')" id="btn-en">
+          <span class="flag">🇬🇧</span>
+          <span class="lang-text">EN</span>
+        </button>
+      </div>
+
+      <a href="https://coincarriere.com/register?type=company"
+         target="_blank" rel="noopener" class="btn-nav" data-i18n="nav.cta">
+        احصل على كفاءات الآن
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div><div class="hero-grid"></div>
+  <div class="hero-glow"></div><div class="hero-glow2"></div>
+  <div class="container">
+
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="900">
+      <div class="badge"><i class="fas fa-bolt"></i> <span data-i18n="hero.badge">متخصصون في السيارات الكهربائية والهجينة</span></div>
+      <h1 class="hero-title">
+        <span class="line1" data-i18n="hero.title1">نوفر لك</span><br/>
+        <span class="line2" data-i18n="hero.title2">أفضل التقنيين</span><br/>
+        <span class="line3" data-i18n="hero.title3">والمهندسين</span>
+      </h1>
+      <p class="hero-desc" data-i18n="hero.desc">
+        تربطك <strong>coincarrière</strong> بأفضل الكفاءات التقنية المتخصصة في السيارات الكهربائية والهجينة
+      </p>
+      <div class="hero-cta">
+        <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" class="btn-primary">
+          <i class="fas fa-rocket"></i> <span data-i18n="hero.cta1">ابدأ التوظيف الآن</span>
+        </a>
+        <a href="#how" class="btn-secondary">
+          <i class="fas fa-play-circle"></i> <span data-i18n="hero.cta2">كيف نعمل؟</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">+<span>500</span></span>
+          <span class="stat-label" data-i18n="stats.s1">متخصص موظَّف</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num"><span>48</span>H</span>
+          <span class="stat-label" data-i18n="stats.s2">متوسط زمن التوفير</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">+<span>98</span>%</span>
+          <span class="stat-label" data-i18n="stats.s3">معدل رضا العملاء</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">+<span>80</span></span>
+          <span class="stat-label" data-i18n="stats.s4">شركة موثوقة</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image-block" data-aos="fade-up" data-aos-duration="900" data-aos-delay="250">
+      <div class="hero-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1200&q=80&auto=format&fit=crop"
+             alt="EV Engineers" loading="lazy"/>
+        <div class="hero-img-overlay"></div>
+        <div class="img-badge badge-top-right">
+          <div class="img-badge-icon"><i class="fas fa-user-check"></i></div>
+          <div class="img-badge-text">
+            <span class="img-badge-num">+2000</span>
+            <span class="img-badge-lbl" data-i18n="imgbadge.b1">متخصص جاهز</span>
+          </div>
+        </div>
+        <div class="img-badge badge-top-left">
+          <div class="img-badge-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="img-badge-text">
+            <span class="img-badge-num" data-i18n="imgbadge.b2n">ضمان</span>
+            <span class="img-badge-lbl" data-i18n="imgbadge.b2l">3 أشهر كاملة</span>
+          </div>
+        </div>
+        <div class="img-badge badge-bottom">
+          <div class="img-badge-icon"><i class="fas fa-bolt"></i></div>
+          <div class="img-badge-text">
+            <span class="img-badge-num">48H</span>
+            <span class="img-badge-lbl" data-i18n="imgbadge.b3">توفير سريع</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-img-caption">
+        <i class="fas fa-map-marker-alt"></i>
+        <span data-i18n="hero.caption">كفاءات تقنية متخصصة في قطاع السيارات الكهربائية — جاهزة للتوظيف الفوري</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ TRUSTED ══════════════════════ -->
+<div class="trusted">
+  <div class="container">
+    <p class="trusted-label" data-i18n="trusted.label">يثق بـ coincarrière كبار صناع السيارات الكهربائية</p>
+    <div class="logos-row">
+      <div class="logo-chip"><i class="fas fa-bolt"></i> Tesla Partners</div>
+      <div class="logo-chip"><i class="fas fa-car"></i> EV Motors</div>
+      <div class="logo-chip"><i class="fas fa-charging-station"></i> GreenDrive</div>
+      <div class="logo-chip"><i class="fas fa-cog"></i> HybridTech</div>
+      <div class="logo-chip"><i class="fas fa-industry"></i> AutoElec Pro</div>
+      <div class="logo-chip"><i class="fas fa-leaf"></i> EcoAuto</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════ PROBLEM ══════════════════════ -->
+<section class="section section-mid" id="problem">
+  <div class="container">
+    <div class="text-center" data-aos="fade-up">
+      <div class="badge"><i class="fas fa-exclamation-triangle"></i> <span data-i18n="prob.badge">التحدي الذي تواجهه</span></div>
+      <h2 class="section-title" data-i18n="prob.title">هل تعاني من هذه <span>المشكلات؟</span></h2>
+      <p class="section-sub" data-i18n="prob.sub">شركات السيارات الكهربائية تواجه أزمة حقيقية في إيجاد الكفاءات التقنية المتخصصة</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="problem-icon"><i class="fas fa-clock"></i></div>
+        <h3 data-i18n="prob.c1t">شغور وظيفي طويل</h3>
+        <p  data-i18n="prob.c1p">تقضي أشهراً في البحث عن مهندسين BMS أو تقنيي بطاريات Li-ion دون نتيجة.</p>
+      </div>
+      <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="problem-icon"><i class="fas fa-user-times"></i></div>
+        <h3 data-i18n="prob.c2t">كفاءات غير مؤهلة</h3>
+        <p  data-i18n="prob.c2p">المرشحون لا يمتلكون المهارات التقنية الدقيقة المطلوبة في تقنيات EV الحديثة.</p>
+      </div>
+      <div class="problem-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="problem-icon"><i class="fas fa-dollar-sign"></i></div>
+        <h3 data-i18n="prob.c3t">تكاليف توظيف مرتفعة</h3>
+        <p  data-i18n="prob.c3p">عمليات الاختيار المتكررة تُكبّد شركتك خسائر مالية وبشرية ضخمة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ HOW IT WORKS ══════════════════════ -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="text-center" data-aos="fade-up">
+      <div class="badge"><i class="fas fa-route"></i> <span data-i18n="how.badge">آلية العمل</span></div>
+      <h2 class="section-title" data-i18n="how.title">توظيف ذكي في <span>4 خطوات</span></h2>
+      <p class="section-sub" data-i18n="how.sub">نظام coincarrière المُبسَّط يوفر لك الكفاءة المناسبة في أقل وقت ممكن</p>
+    </div>
+    <div class="steps-wrapper">
+      <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="step-num">1</div>
+        <h3 data-i18n="how.s1t">تحليل احتياجاتكم</h3>
+        <p  data-i18n="how.s1p">نجري معك جلسة استشارية مجانية لفهم المتطلبات التقنية والثقافة المؤسسية لشركتك.</p>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="step-num">2</div>
+        <h3 data-i18n="how.s2t">مطابقة الكفاءات</h3>
+        <p  data-i18n="how.s2p">نفحص قاعدة بيانات +2000 متخصص EV ونختار الأفضل تطابقاً.</p>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="step-num">3</div>
+        <h3 data-i18n="how.s3t">تقديم المرشحين</h3>
+        <p  data-i18n="how.s3p">نقدم لك قائمة مختصرة من المرشحين خلال 48 ساعة مع تقرير تقييمي شامل.</p>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="step-num">4</div>
+        <h3 data-i18n="how.s4t">ضمان التوظيف</h3>
+        <p  data-i18n="how.s4p">نضمن التوافق 3 أشهر — في حال عدم الرضا نوفر بديلاً مجاناً.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ SERVICES ══════════════════════ -->
+<section class="section section-light" id="services">
+  <div class="container">
+    <div class="text-center" data-aos="fade-up">
+      <div class="badge" style="background:rgba(0,158,117,0.1);border-color:rgba(0,158,117,0.3);">
+        <i class="fas fa-layer-group"></i> <span data-i18n="srv.badge">خدماتنا</span>
+      </div>
+      <h2 class="section-title light" data-i18n="srv.title">التخصصات التي <span>نوفرها</span></h2>
+      <p class="section-sub dark" data-i18n="srv.sub">تغطي coincarrière كامل الاحتياجات التقنية لصناعة السيارات الكهربائية والهجينة</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-icon"><i class="fas fa-car-battery"></i></div>
+        <h3 data-i18n="srv.c1t">مهندسو البطاريات وأنظمة BMS</h3>
+        <p  data-i18n="srv.c1p">متخصصون في تصميم وإدارة أنظمة بطاريات الليثيوم وتقنيات الشحن السريع.</p>
+        <div class="service-tags">
+          <span class="tag">BMS Engineer</span><span class="tag">Battery Pack</span>
+          <span class="tag">Li-ion</span><span class="tag">Thermal Mgmt</span>
+        </div>
+        <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" class="service-cta-btn">
+          <i class="fas fa-user-plus"></i> <span data-i18n="srv.cta">احصل على كفاءاتك الآن</span>
+        </a>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-icon"><i class="fas fa-microchip"></i></div>
+        <h3 data-i18n="srv.c2t">مهندسو الإلكترونيات والأنظمة</h3>
+        <p  data-i18n="srv.c2p">خبراء في أنظمة التحكم الإلكتروني للمركبات، ECU وأجهزة الاستشعار المتقدمة.</p>
+        <div class="service-tags">
+          <span class="tag">ECU Developer</span><span class="tag">Embedded</span>
+          <span class="tag">CAN Bus</span><span class="tag">Diagnostics</span>
+        </div>
+        <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" class="service-cta-btn">
+          <i class="fas fa-user-plus"></i> <span data-i18n="srv.cta">احصل على كفاءاتك الآن</span>
+        </a>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-icon"><i class="fas fa-robot"></i></div>
+        <h3 data-i18n="srv.c3t">متخصصو ADAS والقيادة الذاتية</h3>
+        <p  data-i18n="srv.c3p">مهندسون في أنظمة مساعدة السائق وتقنيات الرادار والحوسبة العميقة.</p>
+        <div class="service-tags">
+          <span class="tag">ADAS Engineer</span><span class="tag">LiDAR</span>
+          <span class="tag">Computer Vision</span>
+        </div>
+        <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" class="service-cta-btn">
+          <i class="fas fa-user-plus"></i> <span data-i18n="srv.cta">احصل على كفاءاتك الآن</span>
+        </a>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-icon"><i class="fas fa-charging-station"></i></div>
+        <h3 data-i18n="srv.c4t">تقنيو الصيانة والتشخيص</h3>
+        <p  data-i18n="srv.c4p">فنيون محترفون في تشخيص وصيانة مركبات EV/HEV بأحدث أجهزة الفحص.</p>
+        <div class="service-tags">
+          <span class="tag">EV Technician</span><span class="tag">HV Safety</span>
+          <span class="tag">OBD Diagnostics</span>
+        </div>
+        <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" class="service-cta-btn">
+          <i class="fas fa-user-plus"></i> <span data-i18n="srv.cta">احصل على كفاءاتك الآن</span>
+        </a>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-icon"><i class="fas fa-bolt"></i></div>
+        <h3 data-i18n="srv.c5t">مهندسو أنظمة الدفع الكهربائي</h3>
+        <p  data-i18n="srv.c5p">متخصصون في محركات الحث والتيار المتردد وأنظمة التحكم في القدرة.</p>
+        <div class="service-tags">
+          <span class="tag">Powertrain EV</span><span class="tag">Inverter Design</span>
+          <span class="tag">Motor Control</span>
+        </div>
+        <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" class="service-cta-btn">
+          <i class="fas fa-user-plus"></i> <span data-i18n="srv.cta">احصل على كفاءاتك الآن</span>
+        </a>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-icon"><i class="fas fa-code"></i></div>
+        <h3 data-i18n="srv.c6t">مطورو البرمجيات المدمجة</h3>
+        <p  data-i18n="srv.c6p">مبرمجون في AUTOSAR وRTOS والبرمجة المدمجة للسيارات الذكية.</p>
+        <div class="service-tags">
+          <span class="tag">AUTOSAR</span><span class="tag">RTOS</span>
+          <span class="tag">C/C++ Embedded</span>
+        </div>
+        <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" class="service-cta-btn">
+          <i class="fas fa-user-plus"></i> <span data-i18n="srv.cta">احصل على كفاءاتك الآن</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ WHY US ══════════════════════ -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div data-aos="fade-right">
+        <div class="badge"><i class="fas fa-star"></i> <span data-i18n="why.badge">ميزتنا التنافسية</span></div>
+        <h2 class="section-title" data-i18n="why.title">لماذا يختار مديرو HR <span>coincarrière؟</span></h2>
+        <p class="section-sub" style="margin:0 0 36px;" data-i18n="why.sub">
+          نحن لسنا مجرد وكالة توظيف — coincarrière هو شريكك الاستراتيجي في بناء فريقك التقني
+        </p>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-item-icon"><i class="fas fa-database"></i></div>
+            <div class="why-item-text">
+              <h4 data-i18n="why.i1t">قاعدة بيانات حصرية +2000 متخصص</h4>
+              <p  data-i18n="why.i1p">شبكة coincarrière من المهندسين والتقنيين المتخصصين في قطاع EV و Hybrid.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="why-item-text">
+              <h4 data-i18n="why.i2t">ضمان 3 أشهر أو استبدال مجاني</h4>
+              <p  data-i18n="why.i2p">إذا لم يكن المرشح مناسباً في 90 يوماً، نوفر بديلاً دون أي رسوم.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon"><i class="fas fa-stopwatch"></i></div>
+            <div class="why-item-text">
+              <h4 data-i18n="why.i3t">توفير خلال 48 ساعة</h4>
+              <p  data-i18n="why.i3p">نلتزم بتقديم قائمة مرشحين مؤهلين في يومي عمل فقط.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon"><i class="fas fa-certificate"></i></div>
+            <div class="why-item-text">
+              <h4 data-i18n="why.i4t">كفاءات معتمدة ومُختبَرة</h4>
+              <p  data-i18n="why.i4p">كل متخصص يجتاز تقييماً تقنياً شاملاً قبل إدراجه في شبكة coincarrière.</p>
+            </div>
+          </div>
+        </div>
+        <div class="why-cta-wrap">
+          <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" class="btn-why-cta">
+            <i class="fas fa-rocket"></i> <span data-i18n="why.cta">احصل على كفاءاتك الآن</span>
+          </a>
+        </div>
+      </div>
+      <div class="why-visual" data-aos="fade-left" data-aos-delay="200">
+        <div class="metrics-card">
+          <div class="metrics-title" data-i18n="why.metric_title">أداء coincarrière في التوظيف</div>
+          <div class="metric-row">
+            <div class="metric-item">
+              <div class="metric-header">
+                <span class="metric-name" data-i18n="why.m1">سرعة التوفير</span>
+                <span class="metric-val">95%</span>
+              </div>
+              <div class="metric-bar"><div class="metric-fill" style="width:95%"></div></div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-header">
+                <span class="metric-name" data-i18n="why.m2">دقة المطابقة التقنية</span>
+                <span class="metric-val">92%</span>
+              </div>
+              <div class="metric-bar"><div class="metric-fill" style="width:92%"></div></div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-header">
+                <span class="metric-name" data-i18n="why.m3">معدل الاحتفاظ</span>
+                <span class="metric-val">88%</span>
+              </div>
+              <div class="metric-bar"><div class="metric-fill" style="width:88%"></div></div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-header">
+                <span class="metric-name" data-i18n="why.m4">رضا مديري HR</span>
+                <span class="metric-val">98%</span>
+              </div>
+              <div class="metric-bar"><div class="metric-fill" style="width:98%"></div></div>
+            </div>
+          </div>
+          <div class="kpi-row">
+            <div class="kpi-item"><div class="kpi-num">+500</div><div class="kpi-lbl" data-i18n="kpi.k1">كفاءة موظَّفة</div></div>
+            <div class="kpi-item"><div class="kpi-num">+80</div><div class="kpi-lbl"  data-i18n="kpi.k2">شركة عميلة</div></div>
+            <div class="kpi-item"><div class="kpi-num">48H</div><div class="kpi-lbl"  data-i18n="kpi.k3">متوسط التوفير</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ TESTIMONIALS ══════════════════════ -->
+<section class="section section-light" id="testimonials">
+  <div class="container">
+    <div class="text-center" data-aos="fade-up">
+      <div class="badge" style="background:rgba(0,158,117,0.1);border-color:rgba(0,158,117,0.3);">
+        <i class="fas fa-comments"></i> <span data-i18n="testi.badge">شهادات عملائنا</span>
+      </div>
+      <h2 class="section-title light" data-i18n="testi.title">ماذا يقولون عن <span>coincarrière؟</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="quote-icon">"</div>
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testimonial-text" data-i18n="testi.t1">وفّرت لنا coincarrière 3 مهندسين BMS خلال 36 ساعة فقط! الكفاءة والسرعة لا مثيل لهما.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">L</div>
+          <div>
+            <div class="author-name" data-i18n="testi.n1">لمياء العمري</div>
+            <div class="author-role" data-i18n="testi.r1">مديرة الموارد البشرية – GreenDrive Motors</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="quote-icon">"</div>
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testimonial-text" data-i18n="testi.t2">بحثنا عن متخصص ADAS لأكثر من 4 أشهر دون جدوى. coincarrière قدمت لنا المرشح المثالي في يومين!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">Y</div>
+          <div>
+            <div class="author-name" data-i18n="testi.n2">يوسف المغربي</div>
+            <div class="author-role" data-i18n="testi.r2">مسؤول التوظيف – AutoElec Pro</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="quote-icon">"</div>
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <p class="testimonial-text" data-i18n="testi.t3">ضمان الثلاثة أشهر أعطانا ثقة كاملة. المرشحون يصلون بمستوى تقني عالٍ ومعتمد.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">N</div>
+          <div>
+            <div class="author-name" data-i18n="testi.n3">نور الهدى بن يوسف</div>
+            <div class="author-role" data-i18n="testi.r3">مديرة التوظيف – HybridTech Group</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ CTA BANNER ══════════════════════ -->
+<section class="cta-banner" data-aos="fade-up">
+  <div class="container">
+    <div class="cta-banner-text">
+      <h2 data-i18n="banner.title">جاهز لتوظيف <span>أفضل الكفاءات</span> عبر coincarrière؟</h2>
+      <p data-i18n="banner.sub">انضم إلى أكثر من 80 شركة EV تثق بـ coincarrière</p>
+    </div>
+    <div class="cta-banner-btns">
+      <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" class="btn-cta-banner">
+        <i class="fas fa-rocket"></i> <span data-i18n="banner.cta1">احصل على كفاءاتك الآن</span>
+      </a>
+      <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" class="btn-cta-banner-outline">
+        <i class="fas fa-calendar-check"></i> <span data-i18n="banner.cta2">احجز استشارة مجانية</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ FORM ══════════════════════ -->
+<section class="section form-section" id="contact">
+  <div class="container">
+    <div class="form-wrapper">
+      <div class="text-center" data-aos="fade-up" style="margin-bottom:44px">
+        <div class="badge"><i class="fas fa-paper-plane"></i> <span data-i18n="form.badge">طلب الكفاءات</span></div>
+        <h2 class="section-title" data-i18n="form.title">سجّل في <span>coincarrière</span> واحصل على كفاءاتك الآن</h2>
+        <p class="section-sub" data-i18n="form.sub">أرسل طلبك وسيتواصل معك فريق coincarrière خلال ساعتين</p>
+      </div>
+      <div class="form-card" data-aos="fade-up" data-aos-delay="200">
+        <form id="mainForm">
+          <div class="form-group">
+            <label class="form-label" data-i18n="form.l1">الاسم الكامل <span>*</span></label>
+            <input type="text" class="form-input" data-i18n-ph="form.ph1" placeholder="مثال: محمد العلي" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="form.l2">البريد الإلكتروني <span>*</span></label>
+            <input type="email" class="form-input" placeholder="name@company.com" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="form.l3">المسمى الوظيفي <span>*</span></label>
+            <input type="text" class="form-input" data-i18n-ph="form.ph3" placeholder="مدير الموارد البشرية" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="form.l4">التخصص التقني المطلوب <span>*</span></label>
+            <select class="form-select" required id="specSelect">
+              <option value="" disabled selected data-i18n="form.sel">اختر التخصص</option>
+              <option data-i18n="form.o1">مهندس BMS / بطاريات</option>
+              <option data-i18n="form.o2">مهندس أنظمة ADAS</option>
+              <option data-i18n="form.o3">مهندس Powertrain كهربائي</option>
+              <option data-i18n="form.o4">مطور برمجيات مدمجة</option>
+              <option data-i18n="form.o5">تقني صيانة EV/HEV</option>
+              <option data-i18n="form.o6">مهندس إلكترونيات سيارات</option>
+              <option data-i18n="form.o7">تخصص آخر</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="form.l5">اسم الشركة <span style="color:rgba(255,255,255,0.35);font-weight:400" data-i18n="form.opt">(اختياري)</span></label>
+            <input type="text" class="form-input" data-i18n-ph="form.ph5" placeholder="اسم شركتكم إن وجد"/>
+          </div>
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <i class="fas fa-rocket"></i> <span data-i18n="form.submit">إرسال الطلب والتسجيل مجاناً</span>
+          </button>
+          <div class="form-trust">
+            <div class="form-trust-item"><i class="fas fa-lock"></i> <span data-i18n="form.tr1">بياناتك محمية</span></div>
+            <div class="form-trust-item"><i class="fas fa-clock"></i> <span data-i18n="form.tr2">رد خلال ساعتين</span></div>
+            <div class="form-trust-item"><i class="fas fa-gift"></i> <span data-i18n="form.tr3">استشارة مجانية</span></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ FAQ ══════════════════════ -->
+<section class="section section-mid" id="faq">
+  <div class="container">
+    <div class="text-center" data-aos="fade-up" style="margin-bottom:48px">
+      <div class="badge"><i class="fas fa-question-circle"></i> <span data-i18n="faq.badge">الأسئلة الشائعة</span></div>
+      <h2 class="section-title" data-i18n="faq.title">أسئلة عن <span>coincarrière</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="faq.q1">كم يستغرق توفير المرشحين المناسبين؟</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-a" data-i18n="faq.a1">تلتزم coincarrière بتقديم قائمة أولية خلال 48 ساعة. في حالات الاستعجال، نوفّر خلال 24 ساعة.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="faq.q2">كيف تضمن coincarrière جودة المرشحين؟</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-a" data-i18n="faq.a2">كل مرشح يخضع لتقييم تقني متخصص من خبراء صناعة السيارات الكهربائية.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="faq.q3">ما هو نظام الضمان؟</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-a" data-i18n="faq.a3">ضمان 90 يوماً — في حال عدم التطابق، نوفر بديلاً مجاناً دون أي رسوم.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="faq.q4">هل تعملون على التوظيف الدائم فقط؟</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-a" data-i18n="faq.a4">نعمل على جميع أنواع التوظيف: الدائم، المؤقت، والمشاريع المحددة.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="faq.q5">ما هي تكلفة الخدمة؟</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-a" data-i18n="faq.a5">الاستشارة الأولى مجانية. رسومنا تُدفع فقط عند النجاح الفعلي في التوظيف.</div>
+      </div>
+    </div>
+    <div class="faq-cta" data-aos="fade-up">
+      <p data-i18n="faq.ctasub">لا تجد إجابة؟ تحدث مع فريق coincarrière مباشرةً</p>
+      <a href="https://coincarriere.com/register?type=company" target="_blank" rel="noopener" class="btn-faq-cta">
+        <i class="fas fa-comments"></i> <span data-i18n="faq.cta">احصل على كفاءاتك الآن</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+          <div class="logo-text">
+            <span class="logo-name">coin<span>carrière</span></span>
+            <span class="logo-tag">Recruitment Experts</span>
+          </div>
+        </a>
+        <p data-i18n="footer.brand">coincarrière — شريككم الاستراتيجي في توفير الكفاءات التقنية لمستقبل السيارات الكهربائية.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.s1h">خدماتنا</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.s1l1">مهندسو BMS</a></li>
+          <li><a href="#" data-i18n="footer.s1l2">متخصصو ADAS</a></li>
+          <li><a href="#" data-i18n="footer.s1l3">مهندسو Powertrain</a></li>
+          <li><a href="#" data-i18n="footer.s1l4">تقنيو EV</a></li>
+          <li><a href="#" data-i18n="footer.s1l5">مطورو برمجيات مدمجة</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>coincarrière</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.s2l1">من نحن</a></li>
+          <li><a href="#" data-i18n="footer.s2l2">آلية العمل</a></li>
+          <li><a href="#" data-i18n="footer.s2l3">شهادات العملاء</a></li>
+          <li><a href="#" data-i18n="footer.s2l4">المدونة التقنية</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.s3h">تواصل معنا</h4>
+        <ul>
+          <li><a href="mailto:hr@coincarriere.com"><i class="fas fa-envelope" style="margin-left:8px;color:var(--primary)"></i>hr@coincarriere.com</a></li>
+          <li><a href="#"><i class="fab fa-whatsapp" style="margin-left:8px;color:var(--primary)"></i><span data-i18n="footer.wa">واتساب 24/7</span></a></li>
+          <li><a href="#"><i class="fab fa-linkedin-in" style="margin-left:8px;color:var(--primary)"></i>LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span>coincarrière</span>. <span data-i18n="footer.copy">جميع الحقوق محفوظة.</span></p>
+      <p data-i18n="footer.made">صُنع بـ ❤ لمستقبل السيارات الكهربائية</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://coincarriere.com/register?type=company"
+   target="_blank" rel="noopener"
+   class="floating-cta" id="floatingCta">
+  <i class="fas fa-rocket"></i> <span data-i18n="nav.cta">احصل على كفاءاتك الآن</span>
+</a>
+
+
+<!-- ══════════════════════ SCRIPTS ══════════════════════ -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+/* ══════════════════════════════════════════
+   TRANSLATIONS DICTIONARY
+══════════════════════════════════════════ */
+const translations = {
+
+  /* ─────────────── ARABIC ─────────────── */
+  ar: {
+    "nav.services":      "خدماتنا",
+    "nav.how":           "آلية العمل",
+    "nav.why":           "لماذا نحن",
+    "nav.testimonials":  "شهادات",
+    "nav.faq":           "الأسئلة",
+    "nav.cta":           "احصل على كفاءات الآن",
+
+    "hero.badge":  "متخصصون في السيارات الكهربائية والهجينة",
+    "hero.title1": "نوفر لك",
+    "hero.title2": "أفضل التقنيين",
+    "hero.title3": "والمهندسين",
+    "hero.desc":   "تربطك <strong>coincarrière</strong> بأفضل الكفاءات التقنية المتخصصة في السيارات الكهربائية والهجينة — بسرعة، دقة، وضمان كامل.",
+    "hero.cta1":   "ابدأ التوظيف الآن",
+    "hero.cta2":   "كيف نعمل؟",
+    "hero.caption":"كفاءات تقنية متخصصة في قطاع السيارات الكهربائية — جاهزة للتوظيف الفوري",
+
+    "stats.s1": "متخصص موظَّف",
+    "stats.s2": "متوسط زمن التوفير",
+    "stats.s3": "معدل رضا العملاء",
+    "stats.s4": "شركة موثوقة",
+
+    "imgbadge.b1":  "متخصص جاهز",
+    "imgbadge.b2n": "ضمان",
+    "imgbadge.b2l": "3 أشهر كاملة",
+    "imgbadge.b3":  "توفير سريع",
+
+    "trusted.label": "يثق بـ coincarrière كبار صناع السيارات الكهربائية",
+
+    "prob.badge": "التحدي الذي تواجهه",
+    "prob.title": "هل تعاني من هذه <span>المشكلات؟</span>",
+    "prob.sub":   "شركات السيارات الكهربائية تواجه أزمة حقيقية في إيجاد الكفاءات التقنية",
+    "prob.c1t": "شغور وظيفي طويل",
+    "prob.c1p": "تقضي أشهراً في البحث عن مهندسين BMS أو تقنيي بطاريات Li-ion دون نتيجة.",
+    "prob.c2t": "كفاءات غير مؤهلة",
+    "prob.c2p": "المرشحون لا يمتلكون المهارات التقنية الدقيقة المطلوبة في تقنيات EV الحديثة.",
+    "prob.c3t": "تكاليف توظيف مرتفعة",
+    "prob.c3p": "عمليات الاختيار المتكررة تُكبّد شركتك خسائر مالية وبشرية ضخمة.",
+
+    "how.badge": "آلية العمل",
+    "how.title": "توظيف ذكي في <span>4 خطوات</span>",
+    "how.sub":   "نظام coincarrière المُبسَّط يوفر لك الكفاءة المناسبة في أقل وقت ممكن",
+    "how.s1t": "تحليل احتياجاتكم",
+    "how.s1p": "نجري معك جلسة استشارية مجانية لفهم المتطلبات التقنية والثقافة المؤسسية لشركتك.",
+    "how.s2t": "مطابقة الكفاءات",
+    "how.s2p": "نفحص قاعدة بيانات +2000 متخصص EV ونختار الأفضل تطابقاً.",
+    "how.s3t": "تقديم المرشحين",
+    "how.s3p": "نقدم لك قائمة مختصرة من المرشحين خلال 48 ساعة مع تقرير تقييمي شامل.",
+    "how.s4t": "ضمان التوظيف",
+    "how.s4p": "نضمن التوافق 3 أشهر — في حال عدم الرضا نوفر بديلاً مجاناً.",
+
+    "srv.badge": "خدماتنا",
+    "srv.title": "التخصصات التي <span>نوفرها</span>",
+    "srv.sub":   "تغطي coincarrière كامل الاحتياجات التقنية لصناعة السيارات الكهربائية والهجينة",
+    "srv.c1t": "مهندسو البطاريات وأنظمة BMS",
+    "srv.c1p": "متخصصون في تصميم وإدارة أنظمة بطاريات الليثيوم وتقنيات الشحن السريع.",
+    "srv.c2t": "مهندسو الإلكترونيات والأنظمة",
+    "srv.c2p": "خبراء في أنظمة التحكم الإلكتروني للمركبات، ECU وأجهزة الاستشعار المتقدمة.",
+    "srv.c3t": "متخصصو ADAS والقيادة الذاتية",
+    "srv.c3p": "مهندسون في أنظمة مساعدة السائق وتقنيات الرادار والحوسبة العميقة.",
+    "srv.c4t": "تقنيو الصيانة والتشخيص",
+    "srv.c4p": "فنيون محترفون في تشخيص وصيانة مركبات EV/HEV بأحدث أجهزة الفحص.",
+    "srv.c5t": "مهندسو أنظمة الدفع الكهربائي",
+    "srv.c5p": "متخصصون في محركات الحث والتيار المتردد وأنظمة التحكم في القدرة.",
+    "srv.c6t": "مطورو البرمجيات المدمجة",
+    "srv.c6p": "مبرمجون في AUTOSAR وRTOS والبرمجة المدمجة للسيارات الذكية.",
+    "srv.cta": "احصل على كفاءاتك الآن",
+
+    "why.badge":  "ميزتنا التنافسية",
+    "why.title":  "لماذا يختار مديرو HR <span>coincarrière؟</span>",
+    "why.sub":    "نحن لسنا مجرد وكالة توظيف — coincarrière هو شريكك الاستراتيجي في بناء فريقك التقني",
+    "why.i1t": "قاعدة بيانات حصرية +2000 متخصص",
+    "why.i1p": "شبكة coincarrière من المهندسين والتقنيين المتخصصين في قطاع EV و Hybrid.",
+    "why.i2t": "ضمان 3 أشهر أو استبدال مجاني",
+    "why.i2p": "إذا لم يكن المرشح مناسباً في 90 يوماً، نوفر بديلاً دون أي رسوم.",
+    "why.i3t": "توفير خلال 48 ساعة",
+    "why.i3p": "نلتزم بتقديم قائمة مرشحين مؤهلين في يومي عمل فقط.",
+    "why.i4t": "كفاءات معتمدة ومُختبَرة",
+    "why.i4p": "كل متخصص يجتاز تقييماً تقنياً شاملاً قبل إدراجه في شبكة coincarrière.",
+    "why.cta":  "احصل على كفاءاتك الآن",
+    "why.metric_title": "أداء coincarrière في التوظيف",
+    "why.m1": "سرعة التوفير",
+    "why.m2": "دقة المطابقة التقنية",
+    "why.m3": "معدل الاحتفاظ",
+    "why.m4": "رضا مديري HR",
+
+    "kpi.k1": "كفاءة موظَّفة",
+    "kpi.k2": "شركة عميلة",
+    "kpi.k3": "متوسط التوفير",
+
+    "testi.badge": "شهادات عملائنا",
+    "testi.title": "ماذا يقولون عن <span>coincarrière؟</span>",
+    "testi.t1": "وفّرت لنا coincarrière 3 مهندسين BMS خلال 36 ساعة فقط! الكفاءة والسرعة لا مثيل لهما.",
+    "testi.n1": "لمياء العمري",
+    "testi.r1": "مديرة الموارد البشرية – GreenDrive Motors",
+    "testi.t2": "بحثنا عن متخصص ADAS لأكثر من 4 أشهر دون جدوى. coincarrière قدمت لنا المرشح المثالي في يومين!",
+    "testi.n2": "يوسف المغربي",
+    "testi.r2": "مسؤول التوظيف – AutoElec Pro",
+    "testi.t3": "ضمان الثلاثة أشهر أعطانا ثقة كاملة. المرشحون يصلون بمستوى تقني عالٍ ومعتمد.",
+    "testi.n3": "نور الهدى بن يوسف",
+    "testi.r3": "مديرة التوظيف – HybridTech Group",
+
+    "banner.title": "جاهز لتوظيف <span>أفضل الكفاءات</span> عبر coincarrière؟",
+    "banner.sub":   "انضم إلى أكثر من 80 شركة EV تثق بـ coincarrière",
+    "banner.cta1":  "احصل على كفاءاتك الآن",
+    "banner.cta2":  "احجز استشارة مجانية",
+
+    "form.badge":   "طلب الكفاءات",
+    "form.title":   "سجّل في <span>coincarrière</span> واحصل على كفاءاتك الآن",
+    "form.sub":     "أرسل طلبك وسيتواصل معك فريق coincarrière خلال ساعتين",
+    "form.l1":      "الاسم الكامل <span>*</span>",
+    "form.ph1":     "مثال: محمد العلي",
+    "form.l2":      "البريد الإلكتروني <span>*</span>",
+    "form.l3":      "المسمى الوظيفي <span>*</span>",
+    "form.ph3":     "مدير الموارد البشرية",
+    "form.l4":      "التخصص التقني المطلوب <span>*</span>",
+    "form.sel":     "اختر التخصص",
+    "form.o1":      "مهندس BMS / بطاريات",
+    "form.o2":      "مهندس أنظمة ADAS",
+    "form.o3":      "مهندس Powertrain كهربائي",
+    "form.o4":      "مطور برمجيات مدمجة",
+    "form.o5":      "تقني صيانة EV/HEV",
+    "form.o6":      "مهندس إلكترونيات سيارات",
+    "form.o7":      "تخصص آخر",
+    "form.l5":      "اسم الشركة",
+    "form.opt":     "(اختياري)",
+    "form.ph5":     "اسم شركتكم إن وجد",
+    "form.submit":  "إرسال الطلب والتسجيل مجاناً",
+    "form.tr1":     "بياناتك محمية",
+    "form.tr2":     "رد خلال ساعتين",
+    "form.tr3":     "استشارة مجانية",
+
+    "faq.badge":   "الأسئلة الشائعة",
+    "faq.title":   "أسئلة عن <span>coincarrière</span>",
+    "faq.q1": "كم يستغرق توفير المرشحين المناسبين؟",
+    "faq.a1": "تلتزم coincarrière بتقديم قائمة أولية خلال 48 ساعة. في حالات الاستعجال، نوفّر خلال 24 ساعة.",
+    "faq.q2": "كيف تضمن coincarrière جودة المرشحين؟",
+    "faq.a2": "كل مرشح يخضع لتقييم تقني متخصص من خبراء صناعة السيارات الكهربائية.",
+    "faq.q3": "ما هو نظام الضمان؟",
+    "faq.a3": "ضمان 90 يوماً — في حال عدم التطابق، نوفر بديلاً مجاناً دون أي رسوم.",
+    "faq.q4": "هل تعملون على التوظيف الدائم فقط؟",
+    "faq.a4": "نعمل على جميع أنواع التوظيف: الدائم، المؤقت، والمشاريع المحددة.",
+    "faq.q5": "ما هي تكلفة الخدمة؟",
+    "faq.a5": "الاستشارة الأولى مجانية. رسومنا تُدفع فقط عند النجاح الفعلي في التوظيف.",
+    "faq.ctasub": "لا تجد إجابة؟ تحدث مع فريق coincarrière مباشرةً",
+    "faq.cta":    "احصل على كفاءاتك الآن",
+
+    "footer.brand":  "coincarrière — شريككم الاستراتيجي في توفير الكفاءات التقنية لمستقبل السيارات الكهربائية.",
+    "footer.s1h":  "خدماتنا",
+    "footer.s1l1": "مهندسو BMS",
+    "footer.s1l2": "متخصصو ADAS",
+    "footer.s1l3": "مهندسو Powertrain",
+    "footer.s1l4": "تقنيو EV",
+    "footer.s1l5": "مطورو برمجيات مدمجة",
+    "footer.s2l1": "من نحن",
+    "footer.s2l2": "آلية العمل",
+    "footer.s2l3": "شهادات العملاء",
+    "footer.s2l4": "المدونة التقنية",
+    "footer.s3h":  "تواصل معنا",
+    "footer.wa":   "واتساب 24/7",
+    "footer.copy": "جميع الحقوق محفوظة.",
+    "footer.made": "صُنع بـ ❤ لمستقبل السيارات الكهربائية",
+  },
+
+  /* ─────────────── FRENCH ─────────────── */
+  fr: {
+    "nav.services":      "Services",
+    "nav.how":           "Comment ça marche",
+    "nav.why":           "Pourquoi nous",
+    "nav.testimonials":  "Témoignages",
+    "nav.faq":           "FAQ",
+    "nav.cta":           "Recruter maintenant",
+
+    "hero.badge":  "Spécialistes en véhicules électriques & hybrides",
+    "hero.title1": "Nous vous trouvons",
+    "hero.title2": "les meilleurs techniciens",
+    "hero.title3": "& ingénieurs",
+    "hero.desc":   "<strong>coincarrière</strong> connecte votre entreprise aux meilleurs talents techniques spécialisés en véhicules électriques — rapidement, avec précision et garantie.",
+    "hero.cta1":   "Commencer le recrutement",
+    "hero.cta2":   "Comment ça marche ?",
+    "hero.caption":"Talents techniques spécialisés dans le secteur EV — disponibles pour un recrutement immédiat",
+
+    "stats.s1": "Spécialistes recrutés",
+    "stats.s2": "Délai moyen de livraison",
+    "stats.s3": "Taux de satisfaction",
+    "stats.s4": "Entreprises partenaires",
+
+    "imgbadge.b1":  "spécialiste disponible",
+    "imgbadge.b2n": "Garantie",
+    "imgbadge.b2l": "3 mois complets",
+    "imgbadge.b3":  "Livraison rapide",
+
+    "trusted.label": "Ils font confiance à coincarrière",
+
+    "prob.badge": "Le défi que vous rencontrez",
+    "prob.title": "Vous souffrez de ces <span>problèmes ?</span>",
+    "prob.sub":   "Les entreprises EV font face à une vraie crise dans la recherche de talents techniques spécialisés",
+    "prob.c1t": "Postes vacants prolongés",
+    "prob.c1p": "Vous passez des mois à chercher des ingénieurs BMS ou des techniciens Li-ion sans résultat.",
+    "prob.c2t": "Candidats non qualifiés",
+    "prob.c2p": "Les candidats ne possèdent pas les compétences techniques précises requises pour les technologies EV.",
+    "prob.c3t": "Coûts de recrutement élevés",
+    "prob.c3p": "Les processus de sélection répétés causent d'énormes pertes financières à votre entreprise.",
+
+    "how.badge": "Notre processus",
+    "how.title": "Recrutement intelligent en <span>4 étapes</span>",
+    "how.sub":   "Le système simplifié de coincarrière vous fournit le bon talent dans les meilleurs délais",
+    "how.s1t": "Analyse de vos besoins",
+    "how.s1p": "Nous menons une consultation gratuite pour comprendre vos exigences techniques et votre culture d'entreprise.",
+    "how.s2t": "Matching des talents",
+    "how.s2p": "Nous analysons notre base de +2000 spécialistes EV et sélectionnons les meilleurs profils.",
+    "how.s3t": "Présentation des candidats",
+    "how.s3p": "Nous vous livrons une shortlist qualifiée en 48h avec un rapport d'évaluation complet.",
+    "how.s4t": "Garantie de recrutement",
+    "how.s4p": "Garantie 3 mois — si le candidat ne convient pas, nous en fournissons un autre gratuitement.",
+
+    "srv.badge": "Nos services",
+    "srv.title": "Les spécialités que <span>nous fournissons</span>",
+    "srv.sub":   "coincarrière couvre tous les besoins techniques de l'industrie des véhicules électriques et hybrides",
+    "srv.c1t": "Ingénieurs Batterie & Systèmes BMS",
+    "srv.c1p": "Spécialistes en conception et gestion des systèmes de batteries lithium et technologies de charge rapide.",
+    "srv.c2t": "Ingénieurs Électronique & Systèmes",
+    "srv.c2p": "Experts en systèmes de contrôle électronique des véhicules, ECU et capteurs avancés.",
+    "srv.c3t": "Spécialistes ADAS & Conduite autonome",
+    "srv.c3p": "Ingénieurs en systèmes d'aide à la conduite avancés, radar et vision par ordinateur.",
+    "srv.c4t": "Techniciens Maintenance & Diagnostic",
+    "srv.c4p": "Techniciens professionnels en diagnostic et maintenance de véhicules EV/HEV.",
+    "srv.c5t": "Ingénieurs Groupe Motopropulseur Électrique",
+    "srv.c5p": "Spécialistes en moteurs à induction, courant alternatif et systèmes de contrôle de puissance.",
+    "srv.c6t": "Développeurs Logiciels Embarqués",
+    "srv.c6p": "Programmeurs spécialisés en AUTOSAR, RTOS et programmation embarquée pour véhicules intelligents.",
+    "srv.cta": "Recruter maintenant",
+
+    "why.badge":  "Notre avantage concurrentiel",
+    "why.title":  "Pourquoi les DRH choisissent <span>coincarrière ?</span>",
+    "why.sub":    "Nous ne sommes pas qu'une agence de recrutement — coincarrière est votre partenaire stratégique",
+    "why.i1t": "Base de données exclusive +2000 spécialistes",
+    "why.i1p": "Un vaste réseau d'ingénieurs et techniciens spécialisés exclusivement dans le secteur EV & Hybrid.",
+    "why.i2t": "Garantie 3 mois ou remplacement gratuit",
+    "why.i2p": "Si le candidat ne convient pas dans 90 jours, nous fournissons un remplaçant sans frais.",
+    "why.i3t": "Livraison en 48 heures",
+    "why.i3p": "Nous nous engageons à présenter une liste de candidats qualifiés en seulement 2 jours ouvrés.",
+    "why.i4t": "Talents certifiés et testés",
+    "why.i4p": "Chaque spécialiste passe une évaluation technique complète avant d'intégrer notre réseau.",
+    "why.cta":  "Recruter maintenant",
+    "why.metric_title": "Performance de coincarrière",
+    "why.m1": "Rapidité de livraison",
+    "why.m2": "Précision du matching",
+    "why.m3": "Taux de rétention",
+    "why.m4": "Satisfaction des DRH",
+
+    "kpi.k1": "Talents recrutés",
+    "kpi.k2": "Entreprises clientes",
+    "kpi.k3": "Délai moyen",
+
+    "testi.badge": "Témoignages clients",
+    "testi.title": "Ce qu'ils disent de <span>coincarrière</span>",
+    "testi.t1": "coincarrière nous a fourni 3 ingénieurs BMS en seulement 36 heures ! Efficacité et rapidité incomparables.",
+    "testi.n1": "Lamia El Amri",
+    "testi.r1": "DRH – GreenDrive Motors",
+    "testi.t2": "Nous cherchions un spécialiste ADAS depuis plus de 4 mois sans résultat. coincarrière nous a livré le profil idéal en 2 jours !",
+    "testi.n2": "Youssef El Maghribi",
+    "testi.r2": "Responsable Recrutement – AutoElec Pro",
+    "testi.t3": "La garantie de 3 mois nous a donné une totale confiance. Les candidats arrivent avec un niveau technique exceptionnel.",
+    "testi.n3": "Nour El Houda Ben Youssef",
+    "testi.r3": "Directrice Recrutement – HybridTech Group",
+
+    "banner.title": "Prêt à recruter <span>les meilleurs talents</span> via coincarrière ?",
+    "banner.sub":   "Rejoignez plus de 80 entreprises EV qui font confiance à coincarrière",
+    "banner.cta1":  "Recruter maintenant",
+    "banner.cta2":  "Consultation gratuite",
+
+    "form.badge":   "Demande de talents",
+    "form.title":   "Inscrivez-vous sur <span>coincarrière</span> maintenant",
+    "form.sub":     "Envoyez votre demande et notre équipe vous contactera dans les 2 heures",
+    "form.l1":      "Nom complet <span>*</span>",
+    "form.ph1":     "Ex: Mohammed Al Ali",
+    "form.l2":      "Email professionnel <span>*</span>",
+    "form.l3":      "Titre du poste <span>*</span>",
+    "form.ph3":     "DRH / Responsable recrutement",
+    "form.l4":      "Spécialité technique requise <span>*</span>",
+    "form.sel":     "Choisir la spécialité",
+    "form.o1":      "Ingénieur BMS / Batteries",
+    "form.o2":      "Ingénieur Systèmes ADAS",
+    "form.o3":      "Ingénieur Powertrain Électrique",
+    "form.o4":      "Développeur Logiciel Embarqué",
+    "form.o5":      "Technicien Maintenance EV/HEV",
+    "form.o6":      "Ingénieur Électronique Auto",
+    "form.o7":      "Autre spécialité",
+    "form.l5":      "Nom de l'entreprise",
+    "form.opt":     "(optionnel)",
+    "form.ph5":     "Nom de votre entreprise si applicable",
+    "form.submit":  "Envoyer la demande — Inscription gratuite",
+    "form.tr1":     "Données protégées",
+    "form.tr2":     "Réponse sous 2h",
+    "form.tr3":     "Consultation gratuite",
+
+    "faq.badge":   "Questions fréquentes",
+    "faq.title":   "FAQ <span>coincarrière</span>",
+    "faq.q1": "Combien de temps faut-il pour trouver des candidats ?",
+    "faq.a1": "coincarrière s'engage à présenter une liste préliminaire dans les 48 heures. En cas d'urgence, parfois sous 24 heures.",
+    "faq.q2": "Comment coincarrière garantit-elle la qualité des candidats ?",
+    "faq.a2": "Chaque candidat passe une évaluation technique réalisée par des experts de l'industrie automobile électrique.",
+    "faq.q3": "Quel est le système de garantie ?",
+    "faq.a3": "Garantie 90 jours — si le candidat ne correspond pas, nous fournissons un remplaçant gratuitement.",
+    "faq.q4": "Travaillez-vous uniquement sur le recrutement permanent ?",
+    "faq.a4": "Nous travaillons sur tous types : CDI, CDD, missions et freelance — selon vos besoins.",
+    "faq.q5": "Quel est le coût du service ?",
+    "faq.a5": "La première consultation est gratuite. Nos honoraires ne sont dus qu'au succès effectif du recrutement.",
+    "faq.ctasub": "Vous n'avez pas trouvé la réponse ? Contactez notre équipe directement",
+    "faq.cta":    "Recruter maintenant",
+
+    "footer.brand":  "coincarrière — votre partenaire stratégique pour les talents techniques dans l'industrie des véhicules électriques.",
+    "footer.s1h":  "Nos Services",
+    "footer.s1l1": "Ingénieurs BMS",
+    "footer.s1l2": "Spécialistes ADAS",
+    "footer.s1l3": "Ingénieurs Powertrain",
+    "footer.s1l4": "Techniciens EV",
+    "footer.s1l5": "Développeurs Embarqués",
+    "footer.s2l1": "Qui sommes-nous",
+    "footer.s2l2": "Notre processus",
+    "footer.s2l3": "Témoignages",
+    "footer.s2l4": "Blog technique",
+    "footer.s3h":  "Contactez-nous",
+    "footer.wa":   "WhatsApp 24/7",
+    "footer.copy": "Tous droits réservés.",
+    "footer.made": "Fait avec ❤ pour l'avenir des véhicules électriques",
+  },
+
+  /* ─────────────── ENGLISH ─────────────── */
+  en: {
+    "nav.services":      "Services",
+    "nav.how":           "How It Works",
+    "nav.why":           "Why Us",
+    "nav.testimonials":  "Testimonials",
+    "nav.faq":           "FAQ",
+    "nav.cta":           "Hire Talent Now",
+
+    "hero.badge":  "EV & Hybrid Vehicle Specialists",
+    "hero.title1": "We Connect You With",
+    "hero.title2": "Top EV Technicians",
+    "hero.title3": "& Engineers",
+    "hero.desc":   "<strong>coincarrière</strong> connects your company with the best technical talent specialized in electric and hybrid vehicles — fast, accurate, and fully guaranteed.",
+    "hero.cta1":   "Start Hiring Now",
+    "hero.cta2":   "How It Works?",
+    "hero.caption":"Technical specialists in the EV sector — ready for immediate placement",
+
+    "stats.s1": "Specialists Placed",
+    "stats.s2": "Avg. Delivery Time",
+    "stats.s3": "Client Satisfaction",
+    "stats.s4": "Partner Companies",
+
+    "imgbadge.b1":  "specialists ready",
+    "imgbadge.b2n": "Guarantee",
+    "imgbadge.b2l": "Full 3 months",
+    "imgbadge.b3":  "Fast delivery",
+
+    "trusted.label": "Trusted by leading EV manufacturers",
+
+    "prob.badge": "The challenge you face",
+    "prob.title": "Are you struggling with these <span>problems?</span>",
+    "prob.sub":   "EV companies face a real crisis in finding specialized technical talent",
+    "prob.c1t": "Long-term vacancies",
+    "prob.c1p": "You spend months searching for BMS engineers or Li-ion battery technicians with no results.",
+    "prob.c2t": "Unqualified candidates",
+    "prob.c2p": "Candidates lack the precise technical skills required for modern EV technologies.",
+    "prob.c3t": "High hiring costs",
+    "prob.c3p": "Repeated selection processes cause enormous financial losses to your company.",
+
+    "how.badge": "Our Process",
+    "how.title": "Smart Hiring in <span>4 Steps</span>",
+    "how.sub":   "coincarrière's streamlined system delivers the right talent in the shortest time possible",
+    "how.s1t": "Analyze Your Needs",
+    "how.s1p": "We conduct a free consultation to understand your exact technical requirements and company culture.",
+    "how.s2t": "Talent Matching",
+    "how.s2p": "We search our database of +2000 EV specialists and select the best matches.",
+    "how.s3t": "Present Candidates",
+    "how.s3p": "We deliver a qualified shortlist within 48 hours with a comprehensive evaluation report.",
+    "how.s4t": "Hiring Guarantee",
+    "how.s4p": "3-month guarantee — if the candidate doesn't fit, we provide a free replacement.",
+
+    "srv.badge": "Our Services",
+    "srv.title": "Specialties We <span>Provide</span>",
+    "srv.sub":   "coincarrière covers all technical needs for the electric and hybrid vehicle industry",
+    "srv.c1t": "Battery & BMS System Engineers",
+    "srv.c1p": "Specialists in lithium battery system design and fast-charging technology management.",
+    "srv.c2t": "Electronics & ECU System Engineers",
+    "srv.c2p": "Experts in vehicle electronic control systems, ECU development and advanced sensors.",
+    "srv.c3t": "ADAS & Autonomous Driving Specialists",
+    "srv.c3p": "Engineers in advanced driver assistance systems, radar technology and deep learning.",
+    "srv.c4t": "Maintenance & Diagnostic Technicians",
+    "srv.c4p": "Professional technicians in EV/HEV diagnosis and maintenance using latest tools.",
+    "srv.c5t": "Electric Powertrain Engineers",
+    "srv.c5p": "Specialists in induction motors, AC systems and power control management.",
+    "srv.c6t": "Embedded Software Developers",
+    "srv.c6p": "Programmers specialized in AUTOSAR, RTOS and embedded systems for smart vehicles.",
+    "srv.cta": "Hire Talent Now",
+
+    "why.badge":  "Our competitive advantage",
+    "why.title":  "Why HR Managers choose <span>coincarrière?</span>",
+    "why.sub":    "We're not just a recruitment agency — coincarrière is your strategic partner in building your technical team",
+    "why.i1t": "Exclusive database of +2000 specialists",
+    "why.i1p": "A wide network of engineers and technicians exclusively specialized in the EV & Hybrid sector.",
+    "why.i2t": "3-month guarantee or free replacement",
+    "why.i2p": "If the candidate doesn't fit within 90 days, we provide a replacement at no extra cost.",
+    "why.i3t": "Delivery within 48 hours",
+    "why.i3p": "We commit to presenting a qualified candidate list within 2 business days.",
+    "why.i4t": "Certified and tested talent",
+    "why.i4p": "Every specialist passes a comprehensive technical assessment before joining our network.",
+    "why.cta":  "Hire Talent Now",
+    "why.metric_title": "coincarrière Performance",
+    "why.m1": "Delivery Speed",
+    "why.m2": "Technical Match Accuracy",
+    "why.m3": "Retention Rate",
+    "why.m4": "HR Manager Satisfaction",
+
+    "kpi.k1": "Talents Placed",
+    "kpi.k2": "Client Companies",
+    "kpi.k3": "Avg. Delivery",
+
+    "testi.badge": "Client Testimonials",
+    "testi.title": "What they say about <span>coincarrière</span>",
+    "testi.t1": "coincarrière provided us 3 BMS engineers in just 36 hours! Unmatched efficiency and speed.",
+    "testi.n1": "Lamia El Amri",
+    "testi.r1": "HR Director – GreenDrive Motors",
+    "testi.t2": "We searched for an ADAS specialist for over 4 months. coincarrière delivered the perfect candidate in 2 days!",
+    "testi.n2": "Youssef El Maghribi",
+    "testi.r2": "Recruitment Manager – AutoElec Pro",
+    "testi.t3": "The 3-month guarantee gave us complete confidence. Candidates arrive with an exceptionally high technical level.",
+    "testi.n3": "Nour El Houda Ben Youssef",
+    "testi.r3": "Hiring Director – HybridTech Group",
+
+    "banner.title": "Ready to hire <span>top EV talent</span> via coincarrière?",
+    "banner.sub":   "Join 80+ EV companies that trust coincarrière to build their technical teams",
+    "banner.cta1":  "Hire Talent Now",
+    "banner.cta2":  "Free Consultation",
+
+    "form.badge":   "Talent Request",
+    "form.title":   "Register on <span>coincarrière</span> and get your talent now",
+    "form.sub":     "Submit your request and our team will contact you within 2 hours",
+    "form.l1":      "Full Name <span>*</span>",
+    "form.ph1":     "e.g. John Smith",
+    "form.l2":      "Professional Email <span>*</span>",
+    "form.l3":      "Job Title <span>*</span>",
+    "form.ph3":     "HR Manager / Recruitment Officer",
+    "form.l4":      "Required Technical Specialty <span>*</span>",
+    "form.sel":     "Select specialty",
+    "form.o1":      "BMS / Battery Engineer",
+    "form.o2":      "ADAS Systems Engineer",
+    "form.o3":      "Electric Powertrain Engineer",
+    "form.o4":      "Embedded Software Developer",
+    "form.o5":      "EV/HEV Maintenance Technician",
+    "form.o6":      "Automotive Electronics Engineer",
+    "form.o7":      "Other specialty",
+    "form.l5":      "Company Name",
+    "form.opt":     "(optional)",
+    "form.ph5":     "Your company name if applicable",
+    "form.submit":  "Submit Request — Free Registration",
+    "form.tr1":     "Data protected",
+    "form.tr2":     "Reply within 2h",
+    "form.tr3":     "Free consultation",
+
+    "faq.badge":   "Frequently Asked Questions",
+    "faq.title":   "<span>coincarrière</span> FAQ",
+    "faq.q1": "How long does it take to find suitable candidates?",
+    "faq.a1": "coincarrière commits to presenting a preliminary list within 48 hours. In urgent cases, sometimes within 24 hours.",
+    "faq.q2": "How does coincarrière guarantee candidate quality?",
+    "faq.a2": "Every candidate undergoes a specialized technical assessment conducted by EV industry experts.",
+    "faq.q3": "What is the guarantee system?",
+    "faq.a3": "90-day guarantee — if the candidate doesn't match, we provide a free replacement.",
+    "faq.q4": "Do you work on permanent placements only?",
+    "faq.a4": "We work on all types: permanent, temporary, project-based, and freelance — according to your needs.",
+    "faq.q5": "What is the cost of the service?",
+    "faq.a5": "The first consultation is free. Our fees are only due upon successful placement — no upfront costs.",
+    "faq.ctasub": "Didn't find your answer? Talk to our team directly",
+    "faq.cta":    "Hire Talent Now",
+
+    "footer.brand":  "coincarrière — your strategic partner for technical talent in the electric vehicle industry.",
+    "footer.s1h":  "Our Services",
+    "footer.s1l1": "BMS Engineers",
+    "footer.s1l2": "ADAS Specialists",
+    "footer.s1l3": "Powertrain Engineers",
+    "footer.s1l4": "EV Technicians",
+    "footer.s1l5": "Embedded Developers",
+    "footer.s2l1": "About Us",
+    "footer.s2l2": "How It Works",
+    "footer.s2l3": "Testimonials",
+    "footer.s2l4": "Tech Blog",
+    "footer.s3h":  "Contact Us",
+    "footer.wa":   "WhatsApp 24/7",
+    "footer.copy": "All rights reserved.",
+    "footer.made": "Made with ❤ for the future of electric vehicles",
+  }
+};
+
+/* ══════════════════════════════════════════
+   LANGUAGE SWITCH ENGINE
+══════════════════════════════════════════ */
+let currentLang = 'ar';
+
+function setLang(lang) {
+  currentLang = lang;
+  const html = document.getElementById('htmlRoot');
+  const t = translations[lang];
+
+  /* Direction & lang attribute */
+  if (lang === 'ar') {
+    html.setAttribute('dir', 'rtl');
+    html.setAttribute('lang', 'ar');
+  } else {
+    html.setAttribute('dir', 'ltr');
+    html.setAttribute('lang', lang);
+  }
+
+  /* Update page title */
+  const titles = {
+    ar: 'coincarrière – توفير الكفاءات التقنية لمستقبل السيارات',
+    fr: 'coincarrière – Talents Techniques pour l\'Avenir du Véhicule Électrique',
+    en: 'coincarrière – Technical Talent for the Future of Electric Vehicles'
+  };
+  document.title = titles[lang];
+
+  /* Translate all [data-i18n] elements */
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      el.innerHTML = t[key];
+    }
+  });
+
+  /* Translate placeholders */
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (t[key] !== undefined) {
+      el.placeholder = t[key];
+    }
+  });
+
+  /* Translate select options */
+  const sel = document.getElementById('specSelect');
+  if (sel) {
+    const optionKeys = ['form.sel','form.o1','form.o2','form.o3','form.o4','form.o5','form.o6','form.o7'];
+    sel.querySelectorAll('option').forEach((opt, i) => {
+      if (t[optionKeys[i]]) opt.textContent = t[optionKeys[i]];
+    });
+  }
+
+  /* Active lang button */
+  ['ar','fr','en'].forEach(l => {
+    document.getElementById('btn-'+l).classList.toggle('active', l === lang);
+  });
+
+  /* Adjust footer icon margin for LTR */
+  document.querySelectorAll('.footer-col ul li a i').forEach(icon => {
+    if (lang === 'ar') {
+      icon.style.marginLeft  = '8px';
+      icon.style.marginRight = '0';
+    } else {
+      icon.style.marginLeft  = '0';
+      icon.style.marginRight = '8px';
+    }
+  });
+
+  /* Adjust why-item-text alignment */
+  document.querySelectorAll('.why-item-text').forEach(el => {
+    el.style.textAlign = lang === 'ar' ? 'right' : 'left';
+  });
+
+  /* Fade animation */
+  document.body.classList.remove('lang-fade');
+  void document.body.offsetWidth;
+  document.body.classList.add('lang-fade');
+}
+
+/* ══════════════════════════════════════════
+   INIT & UTILITIES
+══════════════════════════════════════════ */
+AOS.init({ once: true, offset: 80 });
+
+/* Floating CTA */
+const floatingCta = document.getElementById('floatingCta');
+window.addEventListener('scroll', () => {
+  floatingCta.classList.toggle('visible', window.scrollY > 500);
+});
+
+/* Navbar shrink */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.style.padding   = window.scrollY > 80 ? '12px 0' : '18px 0';
+  navbar.style.boxShadow = window.scrollY > 80 ? '0 4px 30px rgba(0,0,0,0.3)' : 'none';
+});
+
+/* FAQ Toggle */
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* Form Submit */
+document.getElementById('mainForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const msgs = {
+    ar: 'جاري التحويل إلى coincarrière...',
+    fr: 'Redirection vers coincarrière...',
+    en: 'Redirecting to coincarrière...'
+  };
+  btn.innerHTML = `<i class="fas fa-check-circle"></i> ${msgs[currentLang]}`;
+  btn.style.background = 'linear-gradient(135deg,#28a745,#1e7e34)';
+  btn.disabled = true;
+  setTimeout(() => {
+    window.open('https://coincarriere.com/register?type=company', '_blank');
+    btn.innerHTML = `<i class="fas fa-rocket"></i> ${translations[currentLang]['form.submit']}`;
+    btn.style.background = '';
+    btn.disabled = false;
+    this.reset();
+  }, 1200);
+});
+
+/* Smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const t = document.querySelector(this.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth', block:'start' }); }
+  });
+});
+
+/* Counter Animation */
+function animateCounters() {
+  document.querySelectorAll('.stat-num span, .kpi-num').forEach(el => {
+    const target = parseInt(el.textContent);
+    if (isNaN(target)) return;
+    let count = 0;
+    const step = Math.ceil(target / 60);
+    const timer = setInterval(() => {
+      count = Math.min(count + step, target);
+      el.textContent = count;
+      if (count >= target) clearInterval(timer);
+    }, 25);
+  });
+}
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { animateCounters(); obs.disconnect(); } });
+}, { threshold: 0.3 });
+const hs = document.querySelector('.hero-stats');
+if (hs) obs.observe(hs);
+</script>
+</body>
+</html>
